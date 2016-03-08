@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default class Clock extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.date = new Date();
     this.state = {
       AMPM: this.getAMPM(),

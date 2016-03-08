@@ -19,12 +19,14 @@ class ItemStore extends EventEmitter{
   }
   handleActions(action){
     switch(action.source){
-      case 'LOAD_ITEMS':{
-        this.loadItems(action.items);
-      }break;
+      case 'LOAD_ITEMS':
+        return this.loadItems(action.items);
+
       case "REMOVE_ITEM": {
-        this.removeItem(action.idx);
+        return this.removeItem(action.idx);
       }
+      default:
+        return action;
     }
   }
 }
