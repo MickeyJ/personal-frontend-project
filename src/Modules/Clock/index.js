@@ -5,6 +5,7 @@ export default class Clock extends React.Component {
     super(props);
     this.date = new Date();
     this.state = {
+      AMPM: this.getAMPM(),
       hours: ((this.date.getHours() + 11) % 12 + 1),
       minutes: this.addMinZero(this.date.getMinutes()),
       seconds: this.addSecZero(this.date.getSeconds())
@@ -22,9 +23,16 @@ export default class Clock extends React.Component {
     else
       return value
   }
+  getAMPM(){
+    if(this.date.getHours > 12)
+      return 'AM';
+    else
+      return "PM";
+  }
   tick() {
     this.date = new Date();
     this.setState({
+      AMPM: this.getAMPM(),
       hours: ((this.date.getHours() + 11) % 12 + 1),
       minutes: this.addMinZero(this.date.getMinutes()),
       seconds: this.addSecZero(this.date.getSeconds())
@@ -41,7 +49,7 @@ export default class Clock extends React.Component {
     return (
       <div className="main-clock">
         <span>
-          {this.state.hours}:{this.state.minutes}:{this.state.seconds}
+          {this.state.hours}:{this.state.minutes}:{this.state.seconds}-{this.state.AMPM}
         </span>
       </div>
     );
