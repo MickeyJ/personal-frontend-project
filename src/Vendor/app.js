@@ -3,17 +3,17 @@ import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Layout  from "./../Components/Layout"
-import Orders    from "./../Pages/Orders"
-import Inventory   from "./../Pages/Inventory"
-import Settings from "./../Pages/Settings"
+import OrdersPage from "./../Pages/Orders"
+import InventoryPage from "./../Pages/Inventory"
+import SettingsPage from "./../Pages/Settings"
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
 <Router history={hashHistory}>
   <Route path="/" component={Layout}>
-    <IndexRoute component={Orders}> </IndexRoute>
-    <Route path="inventory" component={Inventory}> </Route>
-    <Route path="settings" component={Settings}> </Route>
+    <IndexRoute component={OrdersPage}> </IndexRoute>
+    <Route path="inventory" component={InventoryPage}> </Route>
+    <Route path="settings" component={SettingsPage}> </Route>
   </Route>
 </Router>, app);
