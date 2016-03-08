@@ -2,7 +2,7 @@ import React from 'react';
 import * as ItemActions from '../../Util/Actions/ItemActions';
 import ItemStore from '../../Util/Stores/ItemStore.js';
 
-class Items extends React.Component {
+class InventoryItem extends React.Component {
   render(){
     return(
       <tr>
@@ -50,15 +50,15 @@ export default class InventoryManager extends React.Component{
           <input type="text" placeholder="Quantity" name="qty" />
           <button className="submit-order" type="submit">Submit</button>
         </form>
-        <ItemList items={this.state.items} />
+        <InventoryList items={this.state.items} />
       </div>
     )
   }
 }
-class ItemList extends React.Component{
+class InventoryList extends React.Component{
   render(){
     const itemNodes = this.props.items.map((item) =>
-      <Items
+      <InventoryItem
         key={item.id}
         title={item.title}
         type={item.type}

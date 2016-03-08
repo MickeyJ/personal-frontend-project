@@ -1,10 +1,10 @@
 import React from 'react';
 import $     from 'jquery';
 
-class Order extends React.Component {
+class OrderItem extends React.Component {
   render(){
     return(
-      <tr className="order">
+      <tr className="order-item">
         <td><span>{this.props.name}</span></td>
         <td><span>{this.props.option}</span></td>
         <td><span>{"$"+this.props.price}</span></td>
@@ -15,7 +15,7 @@ class Order extends React.Component {
     )
   }
 }
-export default class Orders extends React.Component {
+export default class OrderManager extends React.Component {
   constructor(){
     super();
     this.state ={ data: [] };
@@ -74,12 +74,12 @@ export default class Orders extends React.Component {
 class OrderList extends React.Component {
   render() {
     const orderNodes = this.props.data.map((order, i)=>
-      <Order
+      <OrderItem
         name={order.item.name}
         option={order.item.option}
         price={order.item.price}
         key={i}  >
-      </Order>
+      </OrderItem>
     );
     return(
       <div className="order-list">
