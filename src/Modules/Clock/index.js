@@ -6,16 +6,28 @@ export default class Clock extends React.Component {
     this.date = new Date();
     this.state = {
       hours: ((this.date.getHours() + 11) % 12 + 1),
-      minutes: this.date.getMinutes(),
-      seconds: this.date.getSeconds()
+      minutes: this.addMinZero(this.date.getMinutes()),
+      seconds: this.addSecZero(this.date.getSeconds())
     };
+  }
+  addMinZero(value){
+    if(value < 10)
+      return '0'+ value;
+    else
+      return value
+  }
+  addSecZero(value){
+    if(value < 10)
+      return '0'+ value;
+    else
+      return value
   }
   tick() {
     this.date = new Date();
     this.setState({
       hours: ((this.date.getHours() + 11) % 12 + 1),
-      minutes: this.date.getMinutes(),
-      seconds: this.date.getSeconds()
+      minutes: this.addMinZero(this.date.getMinutes()),
+      seconds: this.addSecZero(this.date.getSeconds())
     });
   }
   componentDidMount(){
