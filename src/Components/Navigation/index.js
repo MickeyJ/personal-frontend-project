@@ -7,7 +7,7 @@ const Navigation = () => {
   return(
     <nav style={floatRight}>
       <ul>
-        <Link style={linkStyle} to='/'>Home</Link>
+        <Link style={linkStyle} to='/'>Orders</Link>
         <Link style={linkStyle} activeClassName="active" to='inventory'>Inventory</Link>
         <Link style={linkStyle} activeClassName="active" to='settings'>Settings</Link>
       </ul>

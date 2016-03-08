@@ -12,16 +12,10 @@ export default class Clock extends React.Component {
     };
   }
   addZero(value){
-    if(value < 10)
-      return '0'+ value;
-    else
-      return value
+    return value < 10 ? '0'+ value : value
   }
   getAMPM(){
-    if(this.date.getHours > 12)
-      return 'AM';
-    else
-      return "PM";
+    return this.date.getHours > 12 ? 'AM' : "PM"
   }
   tick() {
     this.date = new Date();
@@ -33,7 +27,7 @@ export default class Clock extends React.Component {
     });
   }
   componentDidMount(){
-    const intervalId = setInterval(this.tick.bind(this), 1000);
+    const intervalId = setInterval(this.tick.bind(this), 500);
     this.setState({intervalId});
   }
   componentWillUnmount(){
