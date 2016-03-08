@@ -1,6 +1,11 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../Dispatch/dispatcher';
 
+import {
+  LOAD_ITEMS,
+  REMOVE_ITEM,
+} from '../Constant/constants'
+
 class ItemStore extends EventEmitter{
   constructor(){
     super();
@@ -19,10 +24,10 @@ class ItemStore extends EventEmitter{
   }
   handleActions(action){
     switch(action.source){
-      case 'LOAD_ITEMS':
+      case LOAD_ITEMS:
         return this.loadItems(action.items);
 
-      case "REMOVE_ITEM": {
+      case REMOVE_ITEM: {
         return this.removeItem(action.idx);
       }
       default:
